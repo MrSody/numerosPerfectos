@@ -10,36 +10,45 @@
             
             document.getElementById('TxtRespuesta').value = resultado + res;
         }
+        
+        //Busca el numero primo
+        function primo(numero){
 
-        //Busca los divisores de un numero y retorna si es un numero perfecto
-        function numPerfecto(num){
-            var resultado = 0;
-            
-            for(cont = 1; cont < num; cont++){
-                
-                if((num % cont) == 0){
-                    resultado += cont;
+            for (var i = 2; i < numero; i++){
+
+                if (numero % i === 0){
+                    return false;
                 }
-            }
-            
-            //retorna true si es numero perfecto
-            if(resultado == num){
-                return true;
-            }
+          }
+
+          return numero !== 1;
         }
         
         function principal(num1, num2){
             var res = "";
+            var resultado = 0;
             
             for(cont = num1; cont <= num2; cont++){
-
-                if(numPerfecto(cont)){
-                    res += cont + "\n";
+                
+                
+                if( primo(Math.pow(2, cont) - 1) && primo(cont) ){
+                    
+                    //Formula de Euclides para los numeros perfectos
+                    resultado = Math.pow(2, cont - 1) * (Math.pow(2, cont) - 1);
+                    
+                    //si se pasa de el numero rompe el ciclo for
+                    if(resultado <= num2){
+                        res += resultado + "\n";
+                    }else{
+                        break;
+                    }
                 }
             }
             
+            //Muestra el resultado en pantalla
             mostrarResultado(res);
         }
+    
     </script>
  
     <style type="text/css">
@@ -76,10 +85,10 @@
         <p>Numeros Naturales perfectos</p>
         
         <p><span>Numero 1:</span>
-            <input type="number" min="0" id="num1" size="6" required>
+            <input type="number" min="1" id="num1" size="6" required>
         </p>
         <p><span>Numero 2:</span>
-            <input type="number" min="0" id="num2" size="6" required>
+            <input type="number" min="1" id="num2" size="6" required>
         </p>
         <button type="button" onClick="principal(num1.value, num2.value)">calcular</button>
         <textarea id="TxtRespuesta" cols="50" rows="7" readonly></textarea>
