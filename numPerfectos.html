@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Numeros naturales perfectos</title>
+    <script type="text/JavaScript">
+        
+        //Muestra el resuldo en pantalla
+        function mostrarResultado(res){
+            var resultado = "los numeros naturales perfectos son: \n";
+            
+            document.getElementById('TxtRespuesta').value = resultado + res;
+        }
+
+        //Busca los divisores de un numero y retorna si es un numero perfecto
+        function numPerfecto(num){
+            var resultado = 0;
+            
+            for(cont = 1; cont < num; cont++){
+                
+                if((num % cont) == 0){
+                    resultado += cont;
+                }
+            }
+            
+            //retorna true es numero perfecto
+            if(resultado == num){
+                return true;
+            }
+        }
+        
+        function principal(num1, num2){
+            var res = "";
+            
+            for(cont = num1; cont <= num2; cont++){
+
+                if(numPerfecto(cont)){
+                    res += cont + "\n";
+                }
+            }
+            
+            mostrarResultado(res);
+        }
+    </script>
+ 
+    <style type="text/css">
+        #Div1 {
+            position: absolute;
+            width: 590px;
+            height: 250px;
+            left: 20px;
+            top: 55px;
+            background-color: #bababa;
+            margin: 2% 25%;
+            border: 2px solid black;
+        }
+        p {
+            font-size: 18px;
+            text-align: center;
+        }
+        body {
+            background-color: #dddddd;
+        }
+        button{
+            float: right;
+            margin-right: 37px;
+            background-color: #7373ef;
+            border-color: #7f7fd9;
+            font-size: 25px;
+        }
+    </style>
+    <meta http-equiv="Content-Type" content="text/html; charset= utf-8">
+</head>
+ 
+<body>
+    <div id="Div1">
+        <p>Numeros Naturales perfectos</p>
+        
+        <p><span>Numero 1:</span>
+            <input type="number" min="0" id="num1" size="6" required>
+        </p>
+        <p><span>Numero 2:</span>
+            <input type="number" min="0" id="num2" size="6" required>
+        </p>
+        <button type="button" onClick="principal(num1.value, num2.value)">calcular</button>
+        <textarea id="TxtRespuesta" cols="50" rows="7" readonly></textarea>
+    </div>
+</body>
+</html>
