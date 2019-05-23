@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Perfect Natural Numbers</title>
+    <meta http-equiv="Content-Type" content="text/html; charset= utf-8">
+    <style type="text/css">
+        #Div1 {
+            position: absolute;
+            width: 590px;
+            height: 250px;
+            left: 20px;
+            top: 55px;
+            background-color: #bababa;
+            margin: 2% 25%;
+            border: 2px solid black;
+        }
+        p {
+            font-size: 18px;
+            text-align: center;
+        }
+        body {
+            background-color: #dddddd;
+        }
+        button{
+            float: right;
+            margin-right: 37px;
+            background-color: #7373ef;
+            border-color: #7f7fd9;
+            font-size: 25px;
+        }
+    </style>
+</head>
+ 
+<body>
+    <div id="Div1">
+        <p>Perfect Natural Numbers</p>
+        
+        <p><span>Number 1:</span>
+            <input type="number" min="1" id="num1" size="6" required>
+        </p>
+        <p><span>Number 2:</span>
+            <input type="number" min="1" id="num2" size="6" required>
+        </p>
+        <button type="button" onClick="main(num1.value, num2.value)">calculate</button>
+        <textarea id="TxtResponse" cols="50" rows="7" readonly></textarea>
+    </div>
+
+    <script src="numberPerfect.js"></script>
+</body>
+</html>

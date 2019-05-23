@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Number Perfect</title>
+    <link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.9.2.css">
+    <meta http-equiv="Content-Type" content="text/html; charset= utf-8">
+</head>
+ 
+<body>
+    <div id="qunit"></div>
+    <div id="qunit-fixture"></div>
+    <script src="https://code.jquery.com/qunit/qunit-2.9.2.js"></script>
+    <script src="numberPerfect.js"></script>
+
+    <script type="text/JavaScript">
+        QUnit.test( "test number perfect", function( assert ) {
+            let num = 496;
+            assert.deepEqual(divisibility(num), [248, 124, 62, 31, 16, 8, 4, 2, 1, 0], 'divisibility 496');
+            let rankNum1 = 1, rankNum2 = 50;
+            assert.deepEqual(rankNumbers(rankNum1, rankNum2), '6\n28\n', 'rankNumbers between 1 and 50');
+        });
+    
+    </script>
+</body>
+</html>
